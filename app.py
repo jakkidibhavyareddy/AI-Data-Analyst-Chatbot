@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import gradio as gr
 from dotenv import load_dotenv
 from google import genai
+from PIL import image 
 
 # Load API Key
 load_dotenv()
@@ -90,7 +91,7 @@ def create_chart(df, question):
             plt.savefig(chart_path)
             plt.close()
 
-            return chart_path
+            return Image.open(chart_path)
 
     return None
 
